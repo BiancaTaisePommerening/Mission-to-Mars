@@ -2,21 +2,42 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as soup
 from webdriver_manager.chrome import ChromeDriverManager
-# import pandas
+# import dependencies   
 import pandas as pd
+import datetime as dt
+
+### SCRAPE ALL FUNCTION ###
+# The function bellow initializes the browser, creates a dictionary, ends the WebDriver and returns the scraped data.
+# define this function as "scrape_all" and then initiate the browser.
+
+def scrape_all():
+    # Initiate headless driver for deployment
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    browser = Browser('chrome', **executable_path, headless=True)
+
+    news_title, news_paragraph = mars_news(browser)
+
+    # Run all scraping functions and store results in a dictionary
+    data = {
+        "news_title": news_title,
+        "news_paragraph": news_paragraph,
+        "featured_image": featured_image(browser),
+        "facts": mars_facts(),
+        "last_modified": dt.datetime.now()
+    }
+
+    # Stop webdriver and return data
+    browser.quit()
+    return data
 
 
-# set your executable path
-executable_path = {'executable_path': ChromeDriverManager().install()}
-browser = Browser('chrome', **executable_path, headless=False)
-
-### TITLE AND PARAGRAPH ###
+### TITLE AND PARAGRAPH FUNCTION ###
 
 # DEFINE THE FUNCTION FOR THE NEWS TITLE AND PARAGRAPH
 def mars_news(browser):
     # Assign the url and instruct the browser to visit it.
     # Visit the mars nasa news site
-    url = 'https://redplanetscience.com'
+    url = 'https://data-class-mars.s3.amazonaws.com/Mars/index.html'
     browser.visit(url)
     # Optional delay for loading the page
     browser.is_element_present_by_css('div.list_text', wait_time=1)
@@ -45,7 +66,7 @@ def mars_news(browser):
 def featured_image(browser):
     # start getting our code ready to automate all of the clicks
     # Visit URL
-    url = 'https://spaceimages-mars.com'
+    url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
     browser.visit(url)
 
     # Find and click the full image button, which is the second image with the tag 'button' so let's use index [1].
@@ -64,7 +85,7 @@ def featured_image(browser):
         return None
 
     # Use the base URL to create an absolute URL
-    img_url = f'https://spaceimages-mars.com/{img_url_rel}'
+    img_url = f'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/{img_url_rel}'
     
     return img_url
 
@@ -74,7 +95,7 @@ def mars_facts():
      # Add try/except for error handling
     try:
       # use 'read_html" to scrape the facts table into a dataframe
-      df = pd.read_html('https://galaxyfacts-mars.com')[0]
+      df = pd.read_html('https://data-class-mars-facts.s3.amazonaws.com/Mars_Facts/index.html')[0]
     except BaseException:
       return None
 
@@ -86,10 +107,9 @@ def mars_facts():
     df.set_index('description', inplace=True)
 
      # Convert dataframe into HTML format, add bootstrap
-    return df.to_html()
+    return df.to_html(classes="table table-striped")
 
+if __name__ == "__main__":
 
-
-
-# quite the browser so it doesn't keep running.
-browser.quit()
+    # If running as script, print scraped data
+    print(scrape_all())
