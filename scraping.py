@@ -23,8 +23,10 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
-        "last_modified": dt.datetime.now()
+        "last_modified": dt.datetime.now(),
+        "hemisphere": hemisphere_photos(browser)
     }
+    
 
     # Stop webdriver and return data
     browser.quit()
@@ -99,7 +101,6 @@ def mars_facts():
     except BaseException:
       return None
 
-
     # we assign columns to the new DataFrame for additional clarity.
     df.columns=['description', 'Mars', 'Earth']
 
@@ -108,6 +109,53 @@ def mars_facts():
 
      # Convert dataframe into HTML format, add bootstrap
     return df.to_html(classes="table table-striped")
+
+
+### HEMISPHERE PHOTOS ###
+
+def hemisphere_photos(browser):
+    url = 'https://marshemispheres.com/'
+
+    browser.visit(url)
+
+    # 2. Create a list to hold the images and titles.
+    hemisphere_image_urls = []
+
+    # 3. Write code to retrieve the image urls and titles for each hemisphere.
+
+    # Convert the browser html to a soup object - for the 4 images on the main page
+    html = browser.html 
+    hemisphere_soup = soup(html, 'html.parser')
+
+
+    # finding the tags to the 4 images.
+    four_images = hemisphere_soup.find_all("div", class_="description")
+
+    # CREATE A FOR LOOP to get the link for the 4 hemisphere images and their titles.
+    # go to the main page
+    # find the url for the first image page (browser.visit)
+    # find the first image url 
+
+    for images in four_images:
+        # going into each page of the 4.
+        browser.visit(url + images.find("a")["href"])
+        # read each page.
+        html = browser.html 
+        current_picture_page = soup(html, 'html.parser')
+        # getting the address for all the 4 full images.
+        image_address = current_picture_page.find("div", class_="downloads").find("a")["href"]
+        full_image_address = url + image_address
+        # get the images' titles.
+        titles = current_picture_page.find("h2", class_= "title").text
+        hemispheres = {"img_url": full_image_address,
+                        "title": titles}
+        # append the hemispheres dictionary to the hemisphere_image_urls list.              
+        hemisphere_image_urls.append(hemispheres)
+
+
+    # 4. return the list that holds the dictionary of each image url and title.
+    return hemisphere_image_urls
+
 
 if __name__ == "__main__":
 
