@@ -102,10 +102,10 @@ def mars_facts():
       return None
 
     # we assign columns to the new DataFrame for additional clarity.
-    df.columns=['description', 'Mars', 'Earth']
+    df.columns=['Description', 'Mars', 'Earth']
 
     # we're turning the Description column into the DataFrame's index. 
-    df.set_index('description', inplace=True)
+    df.set_index('Description', inplace=True)
 
      # Convert dataframe into HTML format, add bootstrap
     return df.to_html(classes="table table-striped")
