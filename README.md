@@ -1,11 +1,11 @@
 # Mission-to-Mars
 
-## Project Overview
-
 Web scraping with HTML/CSS
 
+## Project Overview
 
-The purpose of this project is to perform web scraping on the Mission to mars website and 
+
+The purpose of this project is to build an application that performs Data Scraping by clicking on a button, which will display information about Planet Mars gathered from different websites.
 
 
 ## Web Scraping Methods
@@ -23,6 +23,10 @@ The purpose of this project is to perform web scraping on the Mission to mars we
 - HTML and CSS were used to customize the web application.
 
 - Bootstrap was used to give the web application extra polish.
+
+
+### **Automated Button**
+![jumbotron](./Resources/jumbotron.png)
 
 
 ### **Mars News**
@@ -63,3 +67,4 @@ A few extra modifications were done at the end of the project using a Bootstrap 
     - The page's background color was modified to light orange, by adding **style= "background-color:rgba(255, 166, 0, 0.404)"** to the opening body tag.
     - The Jumbotron's background color was changed to orange, by adding **style="background-color:orange"** to the Jumbotron's opening div tag.
     - The Scrape Button's text color was changed to orange, by adding **style="color:orange"** to the Jumbotron's opening **a** tag, where the button is created.
+
