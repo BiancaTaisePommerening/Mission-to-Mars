@@ -26,7 +26,7 @@ slide_elem = news_soup.select_one('div.list_text')
 
 slide_elem.find('div', class_='content_title')
 
-# Use the parent element to find the first a tag and save it as `news_title`
+# Use the parent element to find the first "a" tag and save it as `news_title`
 news_title = slide_elem.find('div', class_='content_title').get_text()
 news_title
 
