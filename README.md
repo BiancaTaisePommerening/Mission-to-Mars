@@ -18,7 +18,7 @@ The purpose of this project is to perform web scraping on the Mission to mars we
 
 - The NoSQL database MongoDB was used to store the scraped data.
 
-- Flask was used to create the Mission to Mars web applycation, containning a button that executes the scraping code and updates the page with newest data.
+- Flask was used to create the Mission to Mars web application, containing a button that executes the scraping code and updates the page with newest data.
 
 - HTML and CSS were used to customize the web application.
 
@@ -60,6 +60,6 @@ A few extra modifications were done at the end of the project using a Bootstrap 
 
 - Using Inline CSS:
 
-    - The page's background color was modyfied to light orange, by adding **style= "background-color:rgba(255, 166, 0, 0.404)**
-    - The jumbotron's background color was chnaged to orange.
-    - The Scrape Button's text color was chnaged to orange.
+    - The page's background color was modified to light orange, by adding **style= "background-color:rgba(255, 166, 0, 0.404)"** to the opening body tag.
+    - The Jumbotron's background color was changed to orange, by adding **style="background-color:orange"** to the Jumbotron's opening div tag.
+    - The Scrape Button's text color was changed to orange, by adding **style="color:orange"** to the Jumbotron's opening **a** tag, where the button is created.
