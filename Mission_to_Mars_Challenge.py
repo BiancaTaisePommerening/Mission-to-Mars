@@ -68,7 +68,7 @@ df.head()
 # assign columns to the new DataFrame
 df.columns=['Description', 'Mars', 'Earth']
 # turn the Description column into the DataFrame's index.
-df.set_index('Description', inplace=True)
+#df.set_index('Description', inplace=True)
 df
 
 # convert the DataFrame back into HTML-ready code 
