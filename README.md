@@ -22,29 +22,24 @@ The purpose of this project is to perform web scraping on the Mission to mars we
 
 - HTML and CSS were used to customize the web application.
 
-- Bootstrap was used to give the web application extrs polish.
+- Bootstrap was used to give the web application extra polish.
 
 
-
-## Bootstrap and  Formatting
-
-- Bootstrap was used to st
-
-### Mars News
+### **Mars News**
 ![mars_news](./Resources/mars_news.png)
 
 
-### Featured Mars Image 
+### **Featured Mars Image** 
 
 ![featured_mars_image](./Resources/featured_mars_image.png)
 
 
 
-### Mars Facts
+### **Mars Facts**
 
 ![mars_facts](./Resources/mars_facts.png)
 
-### Mars Hemispheres Images
+### **Mars Hemispheres Images**
 
 
 ![mars_hemispheres_1](./Resources/mars_hemispheres_1.png)
@@ -52,3 +47,19 @@ The purpose of this project is to perform web scraping on the Mission to mars we
 ![mars_hemispheres_2](./Resources/mars_hemispheres_2.png)
 
 
+### **Styling the Web Application**
+
+A few extra modifications were done at the end of the project using a Bootstrap stylesheet and also some inline CSS as well.
+
+- Using Bootstrap stylesheet:
+
+    - Color of the Scrape Button was changed from blue to white.
+    - Mars facts table was modified to be "table responsive" so it would adjust according to the size of the screen of the device been used - (the other sections were already altered to be responsive earlier on the project).
+    - Mars Facts Table was styled to have outer borders and color alternating rows by adding **class="table table-bordered table-striped"** inside its table tag.
+    - Mars Facts title was adjusted to be centered by adding **class="text-center"** inside its opening heading tag.
+
+- Using Inline CSS:
+
+    - The page's background color was modyfied to light orange, by adding **style= "background-color:rgba(255, 166, 0, 0.404)**
+    - The jumbotron's background color was chnaged to orange.
+    - The Scrape Button's text color was chnaged to orange.
