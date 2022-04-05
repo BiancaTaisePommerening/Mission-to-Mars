@@ -10,9 +10,9 @@ The purpose of this project is to build an application that performs Data Scrapi
 
 ## Web Scraping Methods
 
-- Chrome Developer Tools were use to identify HTML components.
+- Chrome Developer Tools were used to identify HTML components.
 
-- Python script was written using Splinter was used to automate the browser.
+- Python script was written using Splinter to automate the browser.
 
 - BeautifulSoup, another Python library, was used to extract the data. 
 
