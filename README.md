@@ -18,7 +18,7 @@ The purpose of this project is to build an application that performs Data Scrapi
 
 - The NoSQL database MongoDB was used to store the scraped data.
 
-- Flask was used to create the Mission to Mars web application, containing a button that executes the scraping code and updates the page with newest data.
+- Flask was used to create the Mission to Mars web application, containing a button that executes the scraping code and updates the page with the newest data.
 
 - HTML and CSS were used to customize the web application.
 
@@ -53,12 +53,12 @@ The purpose of this project is to build an application that performs Data Scrapi
 
 ### **Styling the Web Application**
 
-A few extra modifications were done at the end of the project using a Bootstrap stylesheet and also some inline CSS as well.
+A few extra modifications were done at the end of the project using a Bootstrap stylesheet and some inline CSS as well.
 
 - Using Bootstrap stylesheet:
 
     - Color of the Scrape Button was changed from blue to white.
-    - Mars facts table was modified to be "table responsive" so it would adjust according to the size of the screen of the device been used - (the other sections were already altered to be responsive earlier on the project).
+    - Mars facts table was modified to be "table responsive" so it would adjust according to the size of the screen of the device being used - (the other sections were already altered to be responsive earlier on the project).
     - Mars Facts Table was styled to have outer borders and color alternating rows by adding **class="table table-bordered table-striped"** inside its table tag.
     - Mars Facts title was adjusted to be centered by adding **class="text-center"** inside its opening heading tag.
 
